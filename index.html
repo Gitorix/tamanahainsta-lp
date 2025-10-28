@@ -226,6 +226,60 @@
 }
 
 
+/* --- スマホ表示調整（900px以下） --- */
+@media (max-width: 900px) {
+
+  /* Hero全体を少し広めにとる */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+  }
+
+  /* ロゴを中央に薄く小さく表示 */
+  .brand-logo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .brand-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* テキスト類を中央寄せ */
+  .hero h1, .hero p, .hero .tags {
+    text-align: center;
+  }
+
+  /* ボタンを縦積み */
+  .hero .btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero .btn-group a {
+    width: 90%;
+  }
+
+  /* QRセクション幅を調整 */
+  .glass {
+    width: 95%;
+    margin: auto;
+  }
+}
 </style>
   <link rel="icon" href="/favicon.ico" />
   <script type="application/ld+json">
