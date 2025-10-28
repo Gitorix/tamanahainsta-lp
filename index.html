@@ -280,6 +280,38 @@
     margin: auto;
   }
 }
+/* ===== モバイル時のロゴを必ず表示・最背面に敷く ===== */
+@media (max-width: 900px){
+  /* もし過去に display:none があっても上書きする */
+  .brand-logo{ display:block !important; }
+
+  /* Heroの中でロゴを“背景扱い”に、文字は上に */
+  .hero{ position:relative; overflow:hidden; }
+  .brand-logo{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:92vw;            /* 画面幅に合わせて大きめ */
+    max-width:560px;       /* タブレットでも大きすぎない上限 */
+    height:auto;
+    opacity:.18;           /* 少し薄め（好みにより .12〜.25 で調整） */
+    pointer-events:none;
+    z-index:0;             /* ロゴを下に */
+  }
+  .brand-logo img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+  }
+  /* ヒーロー内の他の要素(テキスト/ボタン)はロゴより前面へ */
+  .hero > *:not(.brand-logo){ position:relative; z-index:1; }
+
+  /* はみ出し対策（見出しやボタン） */
+  .hero h1{ font-size:clamp(26px, 6.2vw, 34px); line-height:1.15; word-break:keep-all; }
+  .cta-row{ flex-wrap:wrap; gap:10px; }
+  .cta-row .btn{ width:100%; justify-content:center; }
+}
 </style>
   <link rel="icon" href="/favicon.ico" />
   <script type="application/ld+json">
