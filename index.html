@@ -349,6 +349,33 @@
     min-width: 160px;
   }
 }
+/* ===== ラベル/ハッシュタグを非表示 ===== */
+.kicker { display: none !important; }   /* 「公式 Instagram」ラベルを消す */
+.badge  { display: none !important; }   /* #ウェルネス 等のタグを消す */
+
+/* ===== CTAボタンを枠内で綺麗に整列（スマホ優先） ===== */
+.cta-row{
+  display:flex;
+  flex-direction:column;  /* スマホは縦積み */
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+}
+.cta-row .btn{
+  width:90%;
+  max-width:400px;
+  padding:14px 0;
+  border-radius:12px;
+  font-weight:700;
+  justify-content:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+/* 横幅がある端末は横並びに戻す */
+@media (min-width:700px){
+  .cta-row{ flex-direction:row; justify-content:center; }
+  .cta-row .btn{ width:auto; min-width:160px; }
+}
 </style>
   <link rel="icon" href="/favicon.ico" />
   <script type="application/ld+json">
